@@ -15,10 +15,10 @@ import { Link } from "svelte-routing"
     </div>
 
     <ul class={toggelMenu ? "list-nav visible" : "list-nav"}>
-        <div class="item-nav"><Link to="/" title="A propos">A Propos</Link></div>
-        <Link to="/moc" class="item-nav" title="MOC">MOC</Link>
-        <Link to="/recherches" class="item-nav" title="Recherches">Science</Link>
-        <Link to="/blog" class="item-nav" title="Blog">Blog</Link>
+        <Link to="/" title="A propos">A Propos</Link>
+        <Link to="/moc" title="MOC">MOC</Link>
+        <Link to="/recherches"title="Recherches">Science</Link>
+        <Link to="/blog" title="Blog">Blog</Link>
     </ul>
 
     <div on:click={toggelMenuRes} class="hamburger">
@@ -50,46 +50,32 @@ import { Link } from "svelte-routing"
         height: 100%;
         align-items: center;
     }
-    .list-nav li a{
-        color: white;
-        text-decoration: none;
-        margin: 0 10px;
-        font-weight: bold;
-    }
-
     .hamburger{
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        font-size: 2.5rem;
-        color: white;
-        display: none;
+       position: absolute;
+       top: 5px;
+       right: 10px;
+       font-size: 2.5rem;
+       color: white;
+       display: none;
+       }
+    @media only screen and (max-width:650px){
+        .hamburger{
+            display: block;
+            cursor: pointer;
         }
-
-        @media only screen and (max-width:650px){
-            .hamburger{
-                display: block;
-                cursor: pointer;
-            }
-            ul{
-                padding: 0;
-            }
-            .list-nav{
-                flex-direction: column;
-                position: relative;
-                top: 70px;
-                display: none;
-            }
-            .list-nav.visible{
-                display: block;
-            }
-            .item-nav{
-                width: 100vw;
-                background-color: #0000AA;
-                text-align: center;
-                padding: 0 10px;
-                margin: 0;
-            }
+        ul{
+            padding: 0;
         }
+        .list-nav{
+            flex-direction: column;
+            position: relative;
+            top: 70px;
+            display: none;
+        }
+        .list-nav.visible{
+            display: flex;
+            flex-direction: column;
+        }
+    }
 </style>
 
